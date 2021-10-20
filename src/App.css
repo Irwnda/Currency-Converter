@@ -105,6 +105,7 @@ form .drop-list {
 }
 
 form .exchange-rate {
+  font-weight: 700;
   font-size: 17px;
   margin: 20px 0 30px 0;
 }

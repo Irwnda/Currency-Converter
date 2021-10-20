@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import CurrencyRow from "./CurrencyRow";
+import ExchangeResult from "./ExchangeResult";
 import rawData from "./data/rate.json";
 let rates = rawData[0].rates;
 
@@ -8,6 +9,7 @@ function App() {
   const [fromCurrency, setFromCurrency] = useState();
   const [toCurrency, setToCurrency] = useState();
   const [currencyOptions, setCurrencyOptions] = useState([]);
+  const [currencyValue, setCurrencyValue] = useState(1);
 
   let codes = [];
   for (let code in rates) {
@@ -30,7 +32,11 @@ function App() {
       <form action="#">
         <div className="amount">
           <p>Enter Amount</p>
-          <input type="text" />
+          <input
+            type="text"
+            value={currencyValue}
+            onChange={(e) => setCurrencyValue(e.target.value)}
+          />
         </div>
         <div className="drop-list">
           <div className="From">
@@ -41,7 +47,14 @@ function App() {
               onChangeCurrency={(e) => setFromCurrency(e.target.value)}
             />
           </div>
-          <div className="icon">
+          <div
+            className="icon"
+            onClick={() => {
+              let temp = fromCurrency;
+              setFromCurrency(toCurrency);
+              setToCurrency(temp);
+            }}
+          >
             <i className="fas fa-exchange-alt"></i>
           </div>
           <div className="To">
@@ -53,8 +66,12 @@ function App() {
             />
           </div>
         </div>
-        <div className="exchange-rate"></div>
-        <button>Get Exchange Rate</button>
+        <ExchangeResult
+          currencyValue={currencyValue}
+          fromCurrency={fromCurrency}
+          toCurrency={toCurrency}
+          rates={rates}
+        />
       </form>
     </>
   );
