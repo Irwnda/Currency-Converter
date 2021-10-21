@@ -33,7 +33,7 @@ function App() {
         <div className="amount">
           <p>Enter Amount</p>
           <input
-            type="text"
+            type="number"
             value={currencyValue}
             onChange={(e) => setCurrencyValue(e.target.value)}
           />

@@ -17,3 +17,5 @@ curl_close($curl);
 
 $file = "[$response]";
 file_put_contents("rate.json", $file);
+
+echo "Success";

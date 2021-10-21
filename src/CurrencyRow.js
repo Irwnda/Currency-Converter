@@ -37,8 +37,11 @@ export default function CurrencyRow(props) {
   if (selectedCurrency && selectedCurrency.length) {
     let src;
     if (noncountry.includes(selectedCurrency))
-      src =
-        process.env.PUBLIC_URL + img_src[noncountry.indexOf(selectedCurrency)];
+      if (["XAF", "XAG", "XAU", "XCD", "XOF"].includes(selectedCurrency))
+        src =
+          process.env.PUBLIC_URL +
+          img_src[noncountry.indexOf(selectedCurrency)];
+      else src = img_src[noncountry.indexOf(selectedCurrency)];
     else
       src =
         "https://www.countryflags.io/" +
