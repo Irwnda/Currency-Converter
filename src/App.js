@@ -27,7 +27,7 @@ function App() {
     setFromCurrency("USD");
     setToCurrency("IDR");
   }, []);
-  console.log(Object.keys(rates));
+  // console.log(Object.keys(rates));
 
   let codes = [];
   for (let code in rates) {
