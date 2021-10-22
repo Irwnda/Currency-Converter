@@ -45,9 +45,9 @@ export default function CurrencyRow(props) {
       else src = img_src[noncountry.indexOf(selectedCurrency)];
     else
       src =
-        "https://www.countryflags.io/" +
-        selectedCurrency.slice(0, 2) +
-        "/flat/64.png";
+        "https://flagcdn.com/w20/" +
+        selectedCurrency.slice(0, 2).toLowerCase() +
+        ".png";
     img = <img src={src} alt={selectedCurrency} />;
   }
   return (
