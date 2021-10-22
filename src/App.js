@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import CurrencyRow from "./CurrencyRow";
-import ExchangeResult from "./ExchangeResult";
-import rawData from "./data/rate.json";
+import CurrencyRow from "./components/CurrencyRow/CurrencyRow";
+import ExchangeResult from "./components/ExchangeResult/ExchangeResult";
+import rawData from "./components/data/rate.json";
 let rates = rawData[0].rates;
 
 function App() {

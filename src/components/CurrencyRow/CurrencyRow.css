@@ -1,0 +1,40 @@
+.select-box {
+  display: flex;
+  height: 45px;
+  width: 115px;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #999;
+}
+
+.select-box select {
+  width: auto;
+  font-size: 16px;
+  margin: 0 -5px 0 5px;
+}
+
+.select-box select::-webkit-scrollbar {
+  width: 8px;
+}
+
+.select-box select::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+.select-box select::-webkit-slider-thumb {
+  background: #888;
+  border-radius: 8px;
+  border-right: 2px solid #fff;
+}
+
+.select-box img {
+  max-width: 25px;
+}
+
+select {
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}

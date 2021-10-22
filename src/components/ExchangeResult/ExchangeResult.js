@@ -1,4 +1,5 @@
 import React from "react";
+import "./ExchangeResult.css";
 
 export default function exchangeResult(props) {
   const { currencyValue, fromCurrency, toCurrency, rates } = props;

@@ -1,4 +1,4 @@
-@import "all.css";
+@import "./components/fontawesome/all.css";
 
 * {
   margin: 0;
@@ -32,13 +32,6 @@ body {
   margin: 40px 0 20px 0;
 }
 
-form :where(input, select, button) {
-  width: 100%;
-  border: none;
-  outline: none;
-  border-radius: 5px;
-}
-
 form p {
   font-size: 18px;
   margin-bottom: 5px;
@@ -50,6 +43,7 @@ form input {
   font-size: 17px;
   padding: 1px 15px;
   border: 1px solid #999;
+  border-radius: 5px;
 }
 
 form input:focus {
@@ -64,56 +58,8 @@ form .drop-list {
   justify-content: space-between;
 }
 
-.drop-list .select-box {
-  display: flex;
-  height: 45px;
-  width: 115px;
-  border-radius: 5px;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #999;
-}
-
-.select-box select {
-  width: auto;
-  font-size: 16px;
-  margin: 0 -5px 0 5px;
-}
-
-.select-box select::-webkit-scrollbar {
-  width: 8px;
-}
-
-.select-box select::-webkit-scrollbar-track {
-  background: #fff;
-}
-
-.select-box select::-webkit-slider-thumb {
-  background: #888;
-  border-radius: 8px;
-  border-right: 2px solid #fff;
-}
-
-.select-box img {
-  max-width: 25px;
-}
-
 .drop-list .icon {
   cursor: pointer;
   font-size: 22px;
   margin-top: 30px;
-}
-
-form .exchange-rate {
-  font-weight: 700;
-  font-size: 17px;
-  margin: 20px 0 30px 0;
-}
-
-form button {
-  height: 52px;
-  color: #fff;
-  font-size: 17px;
-  cursor: pointer;
-  background: #675afe;
 }
