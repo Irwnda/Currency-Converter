@@ -10,6 +10,7 @@ function App() {
   const [toCurrency, setToCurrency] = useState();
   const [currencyValue, setCurrencyValue] = useState(1);
   const [rates, setRates] = useState([]);
+  const [lastUpdate, setLastUpdate] = useState("");
 
   useEffect(() => {
     fetch("data/rate.json", {
@@ -23,6 +24,9 @@ function App() {
       })
       .then(function (myData) {
         setRates(myData[0].rates);
+
+        let date = new Date(myData[0].updated * 1000);
+        setLastUpdate(date.toString());
       });
     setFromCurrency("USD");
     setToCurrency("IDR");
@@ -47,7 +51,11 @@ function App() {
           <input
             type="number"
             value={currencyValue}
-            onChange={(e) => setCurrencyValue(Math.abs(e.target.value))}
+            onChange={(e) => {
+              e.target.value = parseFloat(e.target.value);
+              if (e.target.value <= 0) setCurrencyValue(0);
+              else setCurrencyValue(e.target.value);
+            }}
           />
         </div>
         <div className="drop-list">
@@ -85,6 +93,7 @@ function App() {
           rates={rates}
         />
       </form>
+      <p style={{ color: "grey", fontSize: "12px" }}>Updated {lastUpdate}</p>
     </>
   );
 }
