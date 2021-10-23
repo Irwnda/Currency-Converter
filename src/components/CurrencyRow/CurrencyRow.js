@@ -7,6 +7,7 @@ const noncountry = [
   "BTG",
   "DASH",
   "EOS",
+  "ETH",
   "LTC",
   "XAF",
   "XAG",
@@ -22,6 +23,7 @@ const img_src = [
   "https://cryptologos.cc/logos/bitcoin-gold-btg-logo.png",
   "https://cryptologos.cc/logos/dash-dash-logo.png",
   "https://cryptologos.cc/logos/eos-eos-logo.png",
+  "https://cryptologos.cc/logos/ethereum-eth-logo.png",
   "https://cryptologos.cc/logos/litecoin-ltc-logo.png",
   "/img/xaf.png", //https://www.beac.int
   "/img/xag.png", //https://www.kindpng.com/imgv/iJoRohh_custom-minted-round-one-troy-ounce-silver-src/
