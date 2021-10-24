@@ -13,6 +13,7 @@ function App() {
   const [lastUpdate, setLastUpdate] = useState("");
 
   useEffect(() => {
+    // Mendapatkan file dari rate.json yang ada di folder (public/)data
     fetch("data/rate.json", {
       headers: {
         "Content-Type": "application/json",
@@ -23,16 +24,21 @@ function App() {
         return response.json();
       })
       .then(function (myData) {
+        // Menyimpan semua rate
         setRates(myData[0].rates);
 
+        // Mendapatkan waktu kapan rate disimpan
         let date = new Date(myData[0].updated * 1000);
         setLastUpdate(date.toString());
       });
+
+    // Secara default, Converter akan mengatur dari USD ke IDR
     setFromCurrency("USD");
     setToCurrency("IDR");
   }, []);
   // console.log(Object.keys(rates));
 
+  // Mendapatkan semua mata uang yang tersedia pada file rate.json
   let codes = [];
   for (let code in rates) {
     codes.push(
@@ -45,6 +51,7 @@ function App() {
   return (
     <>
       <header>Currency Converter</header>
+
       <form action="#">
         <div className="amount">
           <p>Enter Amount</p>
@@ -58,7 +65,10 @@ function App() {
             }}
           />
         </div>
+
+        {/* Semua list mata uang yang tersedia */}
         <div className="drop-list">
+          {/* Mata uang asal */}
           <div className="From">
             <p>From</p>
             <CurrencyRow
@@ -67,6 +77,8 @@ function App() {
               onChangeCurrency={(e) => setFromCurrency(e.target.value)}
             />
           </div>
+
+          {/* Icon untuk menukar dua mata uang */}
           <div
             className="icon"
             onClick={() => {
@@ -77,6 +89,8 @@ function App() {
           >
             <i className="fas fa-exchange-alt"></i>
           </div>
+
+          {/* Mata uang tujuan */}
           <div className="To">
             <p>To</p>
             <CurrencyRow
@@ -86,6 +100,8 @@ function App() {
             />
           </div>
         </div>
+
+        {/* Hasil konversi */}
         <ExchangeResult
           currencyValue={currencyValue}
           fromCurrency={fromCurrency}
@@ -93,6 +109,8 @@ function App() {
           rates={rates}
         />
       </form>
+
+      {/* Informasi update rate */}
       <p style={{ color: "grey", fontSize: "12px" }}>Updated {lastUpdate}</p>
     </>
   );

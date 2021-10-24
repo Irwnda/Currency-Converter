@@ -1,6 +1,6 @@
 <?php
 $curl = curl_init();
-$API_KEY = file_get_contents('api_key.txt', FALSE, NULL, 0, 36);
+$API_KEY = file_get_contents('api_key.txt', FALSE, NULL, 0, 36);    //api_key.txt berada pada folder yang sama dan berisi key setelah mendaftar pada currencyapi.net
 
 curl_setopt_array($curl, [
     CURLOPT_URL => 'https://currencyapi.net/api/v1/rates?key=' . $API_KEY . '&output=JSON',
@@ -16,6 +16,6 @@ $response = curl_exec($curl);
 curl_close($curl);
 
 $file = "[$response]";
-file_put_contents("rate.json", $file);
+file_put_contents("rate.json", $file);  //"rate.json" akan ditempatkan pada folder yang sama, meskipun bisa ditempatkan di folder lain
 
-echo "Success";
+echo date('j M Y, H:i:s', json_decode($response)->updated); //Format untuk print kapan rate terakhir update.
