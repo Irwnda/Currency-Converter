@@ -9,4 +9,4 @@ React, including React-Hooks `(useState)`
 - Country flags: [flagcdn](https://flagcdn.com)
 - Crypto logos: [cryptologos](https://cryptologos.cc)
 
-Visit [Currency Converter](//currency-converter.apps.irwanda.me).
+Visit [Currency Converter](//currency-converter.irwanda.codes/).
